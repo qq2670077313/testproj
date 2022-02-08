@@ -61,3 +61,6 @@ jobs:
 
       - name: Build
         run: make build
+
+      - name: Upload coverage to Codecov
+        run: bash <(curl -s https://codecov.io/bash)
