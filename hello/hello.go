@@ -15,6 +15,7 @@ func Het() string {
 func Get() string {
 	i := 10
 	if true {
+		// notest
 		i++
 	} else {
 		// notest

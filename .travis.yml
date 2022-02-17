@@ -1,17 +1,10 @@
-os: 
-  - windows
-  - osx
-  - linux
 language: go
-env:
-  global:
-  - USER="huof6829"
-  - REPO="testproj"
-# git:
-#   depth: 3
-#   quiet: true
 go:
   - 1.x
+notificaitons:
+  email:
+    recipients: 68298506@qq.com
+    on_failure: always  
 install:
   - go get -u github.com/dave/courtney
   - go get -t -v ./...
