@@ -4,3 +4,8 @@ package hello
 func Greet() string {
 	return "Hello GitHub Actions"
 }
+
+// Het ... make a test
+func Het() string {
+	return "Hello GitHub Actions"
+}
