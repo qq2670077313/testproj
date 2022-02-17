@@ -13,8 +13,7 @@ func Greet() string {
 }
 
 // Het ... make a test
-// notest
-func Het() string {
+func Het() string { // notest
 	return "Hello GitHub Actions"
 }
 
