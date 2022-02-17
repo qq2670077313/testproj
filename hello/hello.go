@@ -6,7 +6,7 @@ func Greet() string {
 }
 
 // Het ... make a test
-//nolint
+// notest
 func Het() string {
 	return "Hello GitHub Actions"
 }
@@ -17,8 +17,8 @@ func Get() string {
 	if true {
 		i++
 	} else {
+		// notest
 		i--
-		//nolint
 		i++
 	}
 	i = i + 1

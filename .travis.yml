@@ -1,0 +1,21 @@
+os: 
+  - windows
+  - osx
+  - linux
+language: go
+env:
+  global:
+  - USER="huof6829"
+  - REPO="testproj"
+# git:
+#   depth: 3
+#   quiet: true
+go:
+  - 1.x
+install:
+  - go get -u github.com/dave/courtney
+  - go get -t -v ./...
+script:
+  - courtney
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
