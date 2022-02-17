@@ -13,6 +13,7 @@ func Greet() string {
 }
 
 // Het ... make a test
+// notest
 func Het() string {
 	return "Hello GitHub Actions"
 }
@@ -21,7 +22,6 @@ func Het() string {
 func Get() string {
 	i := 10
 	if true {
-		//notest
 		i++
 	} else {
 		// notest
