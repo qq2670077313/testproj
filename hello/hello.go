@@ -2,6 +2,14 @@ package hello
 
 // Greet ... Greet GitHub Actions
 func Greet() string {
+	i := 0
+	if i == 1 {
+		// notest
+		i = 2
+		return "111"
+	} else {
+		i = 3
+	}
 	return "Hello GitHub Actions"
 }
 
