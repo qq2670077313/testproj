@@ -35,7 +35,7 @@ data/*
 # binary
 bin/*
 **/release
-coverage.txt
+coverage*
 lint.log
 .editorconfig
 

@@ -41,14 +41,14 @@ jobs:
       - name: Run courtney
         run: |
           export PATH=$PATH:$(go env GOPATH)/bin
-          go get -u github.com/dave/courtney
-          courtney -short -v -o=coverage.out
+          go get -u github.com/dave/courtney@master
+          ./go.test.sh
 
       - name: Upload Coverage report to CodeCov
         uses: codecov/codecov-action@v1.0.0
         with:
           token: ${{secrets.CODECOV_TOKEN}}
-          file: ./coverage.out
+          file: ./coverage.txt
 
   build:
     name: Build
