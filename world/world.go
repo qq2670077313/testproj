@@ -1,5 +1,10 @@
 package world
 
+import (
+	"errors"
+	"fmt"
+)
+
 // Greet ... Greet GitHub Actions
 func Greet() string {
 	i := 0
@@ -29,4 +34,33 @@ func Get() string {
 	}
 	i = i + 1
 	return "Hello GitHub Actions"
+}
+
+// TestErrorExclude ... test return error
+func TestErrorExclude() error {
+	var err error
+	i := 10
+	if true {
+		i++
+		return nil
+	} else {
+		i--
+		i++
+		err = fmt.Errorf("test codecov %s", "TestErrorExclude")
+	}
+	i = i + 1
+	return err
+}
+
+// TestErrorExcludeReturn ... test return error
+func TestErrorExcludeReturn() error {
+	i := 10
+	if true {
+		i++
+		return nil
+	} else {
+		i--
+		i++
+		return errors.New("retrun error")
+	}
 }
