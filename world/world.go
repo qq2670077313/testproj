@@ -36,23 +36,24 @@ func Get() string {
 	return "Hello GitHub Actions"
 }
 
-var i int
-
 // ErrorExclude ... test return error
-func ErrorExclude() error {
+func ErrorExclude(i int) error {
 	var err error
 	if i == 0 {
-		err = fmt.Errorf("test codecov %s", "TestErrorExclude")
+		fmt.Println("i==0")
+		err = fmt.Errorf("test codecov %s", "i==0")
 		return err
 	} else if i < 0 {
-		return errors.New("test return")
+		fmt.Println("i<0")
+		return errors.New("i<0")
 	}
+	fmt.Println("i>0")
 	return nil
 }
 
 // ErrorExcludeReturn ... test return error
-func ErrorExcludeReturn() error {
-	err := ErrorExclude()
+func ErrorExcludeReturn(i int) error {
+	err := ErrorExclude(i)
 	if err != nil {
 		return err
 	}
