@@ -57,14 +57,14 @@ func ErrorExcludeReturn(i int) error {
 	if err != nil {
 		return err
 	}
-	return nil
+	return nil // test parameter is 0.  excluded by courtney
 }
 
 // ErrorExcludeReturnTwo ... test return error
 func ErrorExcludeReturnTwo(i int) error {
 	err := ErrorExclude(i)
 	if err != nil {
-		return err
+		return err // excluded by courtney
 	}
 	return nil
 }
