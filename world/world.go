@@ -59,3 +59,12 @@ func ErrorExcludeReturn(i int) error {
 	}
 	return nil
 }
+
+// ErrorExcludeReturnTwo ... test return error
+func ErrorExcludeReturnTwo(i int) error {
+	err := ErrorExclude(i)
+	if err != nil {
+		return err
+	}
+	return nil
+}
