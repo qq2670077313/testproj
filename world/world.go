@@ -43,11 +43,10 @@ func TestErrorExclude() error {
 	if true {
 		i++
 		return nil
-	} else {
-		i--
-		i++
-		err = fmt.Errorf("test codecov %s", "TestErrorExclude")
 	}
+
+	i++
+	err = fmt.Errorf("test codecov %s", "TestErrorExclude")
 	i = i + 1
 	return err
 }
@@ -58,9 +57,9 @@ func TestErrorExcludeReturn() error {
 	if true {
 		i++
 		return nil
-	} else {
-		i--
-		i++
-		return errors.New("retrun error")
 	}
+
+	i--
+	i++
+	return errors.New("retrun error")
 }
