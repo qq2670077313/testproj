@@ -38,7 +38,7 @@ func Get() string {
 
 var i int
 
-// TestErrorExclude ... test return error
+// ErrorExclude ... test return error
 func ErrorExclude() error {
 	var err error
 	if i == 0 {
@@ -50,7 +50,7 @@ func ErrorExclude() error {
 	return nil
 }
 
-// TestErrorExcludeReturn ... test return error
+// ErrorExcludeReturn ... test return error
 func ErrorExcludeReturn() error {
 	err := ErrorExclude()
 	if err != nil {
