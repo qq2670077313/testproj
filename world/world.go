@@ -36,30 +36,32 @@ func Get() string {
 	return "Hello GitHub Actions"
 }
 
+var i int
+
 // TestErrorExclude ... test return error
 func TestErrorExclude() error {
 	var err error
-	i := 10
-	if true {
+	if i == 10 {
 		i++
 		return nil
 	}
 
 	i++
-	err = fmt.Errorf("test codecov %s", "TestErrorExclude")
-	i = i + 1
-	return err
+	if i == 0 {
+		err = fmt.Errorf("test codecov %s", "TestErrorExclude")
+		i = i + 1
+		return err
+	} else if i < 0 {
+		return errors.New("test return")
+	}
+	return nil
 }
 
 // TestErrorExcludeReturn ... test return error
 func TestErrorExcludeReturn() error {
-	i := 10
-	if true {
-		i++
-		return nil
+	err := TestErrorExclude()
+	if err != nil {
+		return err
 	}
-
-	i--
-	i++
-	return errors.New("retrun error")
+	return nil
 }
