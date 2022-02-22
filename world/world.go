@@ -39,17 +39,10 @@ func Get() string {
 var i int
 
 // TestErrorExclude ... test return error
-func TestErrorExclude() error {
+func ErrorExclude() error {
 	var err error
-	if i == 10 {
-		i++
-		return nil
-	}
-
-	i++
 	if i == 0 {
 		err = fmt.Errorf("test codecov %s", "TestErrorExclude")
-		i = i + 1
 		return err
 	} else if i < 0 {
 		return errors.New("test return")
@@ -58,8 +51,8 @@ func TestErrorExclude() error {
 }
 
 // TestErrorExcludeReturn ... test return error
-func TestErrorExcludeReturn() error {
-	err := TestErrorExclude()
+func ErrorExcludeReturn() error {
+	err := ErrorExclude()
 	if err != nil {
 		return err
 	}
