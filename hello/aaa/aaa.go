@@ -1,5 +1,12 @@
 package aaa
 
+import (
+	"fmt"
+
+	"github.com/pkg/errors"
+	"github.com/spf13/cobra"
+)
+
 // Greet ... Greet GitHub Actions
 func Greet() string {
 	i := 0
@@ -29,4 +36,25 @@ func Get() string {
 	}
 	i = i + 1
 	return "Hello GitHub Actions"
+}
+
+// NewAccountNonce ... represents the account nonce command
+func NewAccountNonce() *cobra.Command {
+	cmd := &cobra.Command{
+		Use:   "use",
+		Short: "short",
+		Args:  cobra.ExactArgs(1),
+		RunE: func(cmd *cobra.Command, args []string) error {
+			cmd.SilenceUsage = true
+
+			if args[0] == "0" {
+				return errors.New("args is empty") // 不带堆栈
+			} else if args[0] == "1" {
+				return errors.Wrap(errors.New("arg=1"), "wrong arg") // 不带堆栈
+			}
+			fmt.Printf("cmd is ok, %v\n", args[0])
+			return nil
+		},
+	}
+	return cmd
 }
