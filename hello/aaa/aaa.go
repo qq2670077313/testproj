@@ -9,6 +9,8 @@ import (
 
 // Greet ... Greet GitHub Actions
 func Greet() string {
+	leak()
+
 	i := 0
 	if i == 1 {
 		// notest
@@ -57,4 +59,35 @@ func NewAccountNonce() *cobra.Command {
 		},
 	}
 	return cmd
+}
+
+var Aliases map[string]string
+
+func init() {
+	Aliases = map[string]string{"a": "1", "b": "2", "c": "3", "d": "1", "e": "1"}
+}
+
+func CheckMap(alias, addr string) {
+	aliases := AliasMap()
+	for aliases[addr] != "" { // 去除重复
+		delete(Aliases, aliases[addr])
+		aliases = AliasMap()
+	}
+	Aliases[alias] = addr
+	fmt.Println("===", Aliases)
+}
+
+func AliasMap() map[string]string {
+	aliases := make(map[string]string)
+	for name, addr := range Aliases {
+		aliases[addr] = name
+	}
+	return aliases
+}
+
+func leak() {
+	ch := make(chan struct{})
+	go func() {
+		ch <- struct{}{}
+	}()
 }

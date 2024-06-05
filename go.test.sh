@@ -3,6 +3,8 @@
 set -e
 # echo "" > coverage.txt
 cat /dev/null > coverage.txt
+cat /dev/null > coverage.out
+cat /dev/null > profile.out
 START_TIME=`date +%s`
 
 # for d in $(go list ./... | grep -v aaa); do
@@ -12,7 +14,7 @@ START_TIME=`date +%s`
     courtney -l=coverage.out -o=profile.out
     if [ -f profile.out ]; then
         cat profile.out >> coverage.txt
-        # rm profile.out coverage.out
+        ## rm profile.out coverage.out
     fi
 # done
 END_TIME=`date +%s`

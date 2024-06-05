@@ -18,7 +18,7 @@ func Greet() string {
 }
 
 // Het ... make a test
-func Het() string { // notest
+func WorldHet() string { // notest
 	return "Hello GitHub Actions"
 }
 

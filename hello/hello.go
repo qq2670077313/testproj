@@ -19,6 +19,12 @@ func Het() string { // notest
 
 // Get ... make a test
 func Get() string {
+	// goroutinue leak
+	ch := make(chan struct{})
+	go func() {
+		ch <- struct{}{}
+	}()
+
 	i := 10
 	if true {
 		i++
